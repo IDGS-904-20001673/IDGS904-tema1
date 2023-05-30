@@ -1,0 +1,51 @@
+﻿@model IDGS904_temaa1.Models.Traductor
+
+@{
+    ViewBag.Title = "Traductor de palabras";
+}
+
+<h2>MostrarPalabra</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Traductor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.llave, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.llave, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Espanol, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.RadioButtonFor(model => Model.tipo, "e") @Html.Label("Español")
+        <br>
+        @Html.RadioButtonFor(model => Model.tipo, "i") @Html.Label("Ingles")
+        <br>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Traducir" class="btn btn-primary" />
+            </div>
+        </div>
+        <h1>@ViewBag.palabra</h1>
+    </div>
+}
+
+
+@using (Html.BeginForm("RegistrarTraductor", "Traductor", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Agregar Palabras" class="btn btn-secondary" />
+        </div>
+    </div>
+
+}

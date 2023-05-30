@@ -1,0 +1,9 @@
+pelota,ball
+rojo,red
+carro,car
+gato,cat
+amarillo,yelow
+perro,dog
+puerta,door
+calle,street
+azul,blue
